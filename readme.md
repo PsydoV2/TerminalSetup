@@ -96,9 +96,7 @@ To display symbols/icons correctly, use a Nerd Font like:
 
 ## 🖼 Screenshot
 
-```markdown
 ![screenshot](./screenshot.png)
-```
 
 ---
 
