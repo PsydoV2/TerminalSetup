@@ -2,8 +2,6 @@
 
 This repository contains my personal terminal configuration for **WSL on Windows**, using **Zsh**, **Oh My Zsh**, and **powerlevel10k** – with a clean and minimal look, custom Windows Terminal profile, and a transparent background wallpaper.
 
----
-
 ## 📦 What’s included
 
 - `.zshrc` – Zsh configuration with plugins and clean prompt
@@ -12,6 +10,61 @@ This repository contains my personal terminal configuration for **WSL on Windows
 - `install.sh` – One-step installer
 - Optional: `fonts/` folder with NerdFont (if not installed)
 - Optional: Windows Terminal profile JSON snippet
+
+## ⚙️ Getting started with WSL on Windows
+
+Before using this terminal setup, make sure WSL and Ubuntu are installed on your Windows machine.
+
+### ✅ Quick install (Windows 10/11)
+
+Open **PowerShell as Administrator** and run:
+
+```powershell
+wsl --install
+```
+
+This will automatically:
+
+- Enable WSL
+- Install the latest Ubuntu distribution
+- Set up WSL 2 as default
+
+After the install is complete, restart your computer.
+
+### 🧠 Manual WSL setup (if needed)
+
+If `wsl --install` doesn't work (older Windows), follow these steps:
+
+1. Enable **Virtual Machine Platform** and **WSL** features:
+
+```powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+2. Restart your PC
+3. Download and install a Linux distribution (e.g. Ubuntu) from the [Microsoft Store](https://aka.ms/wslstore)
+4. Set WSL version 2 as default:
+
+```powershell
+wsl --set-default-version 2
+```
+
+---
+
+Once you’ve installed Ubuntu and launched it for the first time, you can continue with the terminal setup below 👇
+
+````
+
+---
+
+### 🪄 Einfügen in deine README
+
+Ich empfehle, den Abschnitt **direkt nach dem Titel oder vor `What's included`** einzufügen.
+Das macht es auch für neue User superverständlich.
+
+Wenn du willst, kann ich dir deine komplette README direkt zusammenbauen und in ein `.md`-File exportieren – oder gleich ins Repo push-fertig machen. Sag einfach Bescheid 😎
+
 
 ---
 
@@ -34,15 +87,13 @@ git clone https://github.com/PsydoV2/TerminalSetup
 cd TerminalSetup
 chmod +x install.sh
 ./install.sh
-```
+````
 
 Then restart your terminal or run:
 
 ```bash
 exec zsh
 ```
-
----
 
 ## 🎨 Windows Terminal Configuration
 
@@ -70,8 +121,6 @@ Here’s the config I use for my Ubuntu WSL profile:
 📌 **Make sure the image path is valid on your system.**  
 You can place your background image inside the repository and adjust the path accordingly.
 
----
-
 ## 🔤 Fonts
 
 To display symbols/icons correctly, use a Nerd Font like:
@@ -80,8 +129,6 @@ To display symbols/icons correctly, use a Nerd Font like:
 
 - Install via right-click → "Install for all users"
 - Set it as your Windows Terminal font
-
----
 
 ## 🧼 Features
 
@@ -92,18 +139,6 @@ To display symbols/icons correctly, use a Nerd Font like:
 - ✅ Transparent background with wallpaper
 - ✅ NerdFont support for dev icons
 
----
-
 ## 🖼 Screenshot
 
 ![screenshot](./screenshot.png)
-
----
-
-## 🧳 Easy to replicate
-
-With this repo, you can quickly replicate your exact terminal experience across machines (e.g., a new WSL install or laptop).
-
----
-
-**Enjoy your clean, powerful terminal.**
