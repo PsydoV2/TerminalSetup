@@ -54,20 +54,6 @@ wsl --set-default-version 2
 
 Once you’ve installed Ubuntu and launched it for the first time, you can continue with the terminal setup below 👇
 
-````
-
----
-
-### 🪄 Einfügen in deine README
-
-Ich empfehle, den Abschnitt **direkt nach dem Titel oder vor `What's included`** einzufügen.
-Das macht es auch für neue User superverständlich.
-
-Wenn du willst, kann ich dir deine komplette README direkt zusammenbauen und in ein `.md`-File exportieren – oder gleich ins Repo push-fertig machen. Sag einfach Bescheid 😎
-
-
----
-
 ## 🧰 Tools installed by `install.sh`
 
 - `zsh`
@@ -78,8 +64,6 @@ Wenn du willst, kann ich dir deine komplette README direkt zusammenbauen und in 
 - `bat` (modern `cat`)
 - `htop` (interactive process viewer)
 
----
-
 ## 🚀 Installation
 
 ```bash
@@ -87,7 +71,7 @@ git clone https://github.com/PsydoV2/TerminalSetup
 cd TerminalSetup
 chmod +x install.sh
 ./install.sh
-````
+```
 
 Then restart your terminal or run:
 
