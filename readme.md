@@ -30,8 +30,8 @@ This repository contains my personal terminal configuration for **WSL on Windows
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/yourname/dotfiles.git
-cd dotfiles
+git clone https://github.com/PsydoV2/TerminalSetup
+cd TerminalSetup
 chmod +x install.sh
 ./install.sh
 ```
@@ -96,10 +96,8 @@ To display symbols/icons correctly, use a Nerd Font like:
 
 ## 🖼 Screenshot
 
-> _You can insert a screenshot here after uploading it to the repo_
-
 ```markdown
-![screenshot](screenshot.png)
+![screenshot](./screenshot.png)
 ```
 
 ---
