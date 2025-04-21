@@ -1,0 +1,5 @@
+# .gitignore
+.zsh_history
+.zcompdump*
+.cache/
+.local/
