@@ -27,7 +27,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
 # ─── Dotfiles kopieren ───────────────────────────────────
 echo "📁 Kopiere Konfigurationsdateien..."
 cp .zshrc ~/.zshrc
-cp .p10k ~/.p10k.zsh
+cp .p10k.zsh ~/.p10k.zsh
 cp .aliases ~/.aliases
 
 # ─── Nerd Font Hinweis ───────────────────────────────────
