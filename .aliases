@@ -1,2 +1,4 @@
 alias ls='lsd'
 alias cat='batcat'
+alias vi='nvim'
+alias vim='nvim'

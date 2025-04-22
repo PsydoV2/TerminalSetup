@@ -37,17 +37,64 @@ cp .aliases ~/.aliases
 cp .vimrc ~/.vimrc
 
 # ─── Neovim Lua Config ───────────────────────────────────
-echo "📝 Creating basic Neovim config..."
-mkdir -p ~/.config/nvim
+echo "📝 Creating Neovim config with lazy.nvim..."
+
+# Create config dir
+mkdir -p ~/.config/nvim/lua
+
+# Install lazy.nvim
+git clone https://github.com/folke/lazy.nvim.git \
+  ~/.config/nvim/lua/lazy.nvim
+
+# init.lua
 cat <<EOF > ~/.config/nvim/init.lua
+-- Basic options
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.cmd("syntax on")
+
+-- lazy.nvim setup
+vim.loader.enable()
+
+-- Bootstrap lazy.nvim if needed
+local lazypath = vim.fn.stdpath("config") .. "/lua/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  -- Plugins go here
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {}
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup({})
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme tokyonight-night")
+    end
+  }
+})
 EOF
 
 # ─── Font Reminder ───────────────────────────────────────
