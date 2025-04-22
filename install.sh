@@ -34,6 +34,7 @@ echo "📁 Copying configuration files..."
 cp .zshrc ~/.zshrc
 cp .p10k.zsh ~/.p10k.zsh
 cp .aliases ~/.aliases
+cp .vimrc ~/.vimrc
 
 # ─── Font Reminder ───────────────────────────────────────
 echo "🔤 Please make sure you're using a Nerd Font (e.g., 'FiraCode Nerd Font Mono') in your terminal for proper icon support."
