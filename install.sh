@@ -7,7 +7,7 @@ echo "🔧 Starting terminal setup..."
 # ─── Update & Install Basic Packages ─────────────────────
 echo "📦 Installing required packages..."
 sudo apt update
-sudo apt install -y zsh git curl wget lsd neofetch bat htop
+sudo apt install -y zsh git curl wget lsd neofetch bat htop neovim
 
 # ─── Set Zsh as Default Shell ────────────────────────────
 echo "🐚 Setting Zsh as the default shell..."
@@ -35,6 +35,20 @@ cp .zshrc ~/.zshrc
 cp .p10k.zsh ~/.p10k.zsh
 cp .aliases ~/.aliases
 cp .vimrc ~/.vimrc
+
+# ─── Neovim Lua Config ───────────────────────────────────
+echo "📝 Creating basic Neovim config..."
+mkdir -p ~/.config/nvim
+cat <<EOF > ~/.config/nvim/init.lua
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.cmd("syntax on")
+EOF
 
 # ─── Font Reminder ───────────────────────────────────────
 echo "🔤 Please make sure you're using a Nerd Font (e.g., 'FiraCode Nerd Font Mono') in your terminal for proper icon support."
