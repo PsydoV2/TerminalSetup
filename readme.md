@@ -126,3 +126,5 @@ To display symbols/icons correctly, use a Nerd Font like:
 ## 🖼 Screenshot
 
 ![screenshot](./screenshot.png)
+
+[![Donation](https://sfalter.de/FileHosting/Donation.png)](https://streamlabs.com/psydoooo/tip)
