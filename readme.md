@@ -79,6 +79,22 @@ Then restart your terminal or run:
 exec zsh
 ```
 
+## 🧼 Uninstalling / Reset to Default
+
+If you want to revert all changes and go back to a standard Bash terminal, you can run the uninstall script:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
+```
+
+**What this does:**
+
+- Switches your default shell back to **Bash**.
+- Removes **Oh My Zsh**, plugins, and the **powerlevel10k** theme.
+- Deletes the custom `.zshrc`, `.p10k.zsh`, and `.aliases`.
+- Uninstalls the packages (like `lsd`, `bat`, `neovim`) via `apt purge`.
+
 ## 🎨 Windows Terminal Configuration
 
 Here’s the config I use for my Ubuntu WSL profile:
@@ -89,7 +105,7 @@ Here’s the config I use for my Ubuntu WSL profile:
   "source": "Microsoft.WSL",
   "font": {
     "face": "FiraCode Nerd Font Mono",
-    "size": 15
+    "size": 15,
   },
   "colorScheme": "IBM 5153",
   "opacity": 75,
@@ -98,7 +114,7 @@ Here’s the config I use for my Ubuntu WSL profile:
   "backgroundImage": "\\wsl.localhost/Ubuntu/home/falter/terminalWallpaper.png",
   "experimental.retroTerminalEffect": false,
   "guid": "{3c411106-319b-56c8-93ba-e36c9825719e}",
-  "hidden": false
+  "hidden": false,
 }
 ```
 
