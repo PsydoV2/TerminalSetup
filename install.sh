@@ -148,12 +148,6 @@ else
   sed -i '/p10k-instant-prompt/d' ~/.zshrc
 fi
 
-# Patch plugins array based on selections
-PLUGINS="git"
-$INSTALL_AUTOSUGG && PLUGINS="$PLUGINS zsh-autosuggestions"
-$INSTALL_SYNTHIGH && PLUGINS="$PLUGINS zsh-syntax-highlighting"
-sed -i "s|^plugins=(.*)|plugins=($PLUGINS)|" ~/.zshrc
-
 # Remove neofetch line if not installed
 $INSTALL_NEOFETCH || sed -i '/neofetch/d' ~/.zshrc
 

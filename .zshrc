@@ -17,8 +17,12 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
-# Plugins — zsh-syntax-highlighting must be last
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# Only load plugins that are actually installed
+# zsh-syntax-highlighting must remain last
+plugins=(git)
+ZSH_CUSTOM_PLUGINS="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
+[[ -d "$ZSH_CUSTOM_PLUGINS/zsh-autosuggestions"    ]] && plugins+=(zsh-autosuggestions)
+[[ -d "$ZSH_CUSTOM_PLUGINS/zsh-syntax-highlighting" ]] && plugins+=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
