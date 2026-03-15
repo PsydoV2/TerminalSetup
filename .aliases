@@ -1,4 +1,10 @@
 alias ls='lsd'
-alias cat='batcat'
 alias vi='nvim'
 alias vim='nvim'
+
+# bat is named 'batcat' on Ubuntu/Debian due to a naming conflict
+if command -v batcat &>/dev/null; then
+  alias cat='batcat'
+elif command -v bat &>/dev/null; then
+  alias cat='bat'
+fi

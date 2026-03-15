@@ -1,6 +1,6 @@
 -- 📄 Basic editor options
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -27,22 +27,22 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- 🎨 Theme
   {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    style = "night",
-    transparent = true,
-    on_highlights = function(hl, c)
-      hl.Comment = { fg = c.orange, italic = true }
-      hl.LineNr = { fg = c.yellow }
-      hl.CursorLineNr = { fg = c.orange, bold = true }
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = "night",
+      transparent = true,
+      on_highlights = function(hl, c)
+        hl.Comment = { fg = c.orange, italic = true }
+        hl.LineNr = { fg = c.yellow }
+        hl.CursorLineNr = { fg = c.orange, bold = true }
+      end
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      vim.cmd("colorscheme tokyonight")
     end
-  },
-  config = function(_, opts)
-    require("tokyonight").setup(opts)
-    vim.cmd("colorscheme tokyonight")
-  end
   },
 
   -- 📊 Statusline
