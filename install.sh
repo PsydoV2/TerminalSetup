@@ -2,6 +2,9 @@
 
 set -e
 
+# Always resolve paths relative to this script, regardless of where it's called from
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 echo "🔧 Starting terminal setup..."
 
 # ─── Component Selection ──────────────────────────────────
@@ -136,12 +139,11 @@ echo "   Backup saved to $BACKUP_DIR"
 
 # ─── Copy & Patch .zshrc ─────────────────────────────────
 echo "📄 Configuring .zshrc..."
-cp .zshrc ~/.zshrc
+cp "$SCRIPT_DIR/.zshrc" ~/.zshrc
 
 # Set theme
 if $INSTALL_P10K; then
-  # p10k.zsh is only useful with the theme
-  cp .p10k.zsh ~/.p10k.zsh
+  cp "$SCRIPT_DIR/.p10k.zsh" ~/.p10k.zsh
 else
   sed -i 's|^ZSH_THEME=.*|ZSH_THEME="robbyrussell"|' ~/.zshrc
   sed -i '/p10k\.zsh/d' ~/.zshrc
@@ -153,10 +155,10 @@ fi
 $INSTALL_NEOFETCH || sed -i '/neofetch/d' ~/.zshrc
 
 # ─── Aliases ─────────────────────────────────────────────
-cp .aliases ~/.aliases
+cp "$SCRIPT_DIR/.aliases" ~/.aliases
 
 # ─── Vimrc ───────────────────────────────────────────────
-[ -f .vimrc ] && cp .vimrc ~/.vimrc
+[ -f "$SCRIPT_DIR/.vimrc" ] && cp "$SCRIPT_DIR/.vimrc" ~/.vimrc
 
 # ─── Clear p10k cache ────────────────────────────────────
 # Force regeneration with the new .zshrc on next shell start
@@ -166,7 +168,7 @@ rm -f "${XDG_CACHE_HOME:-$HOME/.cache}"/p10k-instant-prompt-*.zsh
 if $INSTALL_NEOVIM; then
   echo "📝 Setting up Neovim config..."
   mkdir -p ~/.config/nvim
-  cp "$(pwd)/nvim/init.lua" ~/.config/nvim/init.lua
+  cp "$SCRIPT_DIR/nvim/init.lua" ~/.config/nvim/init.lua
 fi
 
 # ─── Font Reminder ───────────────────────────────────────
