@@ -28,14 +28,15 @@ if command -v whiptail &>/dev/null; then
     "synthigh" "zsh-syntax-highlighting plugin"        ON \
     3>&1 1>&2 2>&3) || { echo "Cancelled."; exit 0; }
 
-  [[ "$CHOICES" != *'"neovim"'*   ]] && INSTALL_NEOVIM=false
-  [[ "$CHOICES" != *'"lsd"'*      ]] && INSTALL_LSD=false
-  [[ "$CHOICES" != *'"bat"'*      ]] && INSTALL_BAT=false
-  [[ "$CHOICES" != *'"neofetch"'* ]] && INSTALL_NEOFETCH=false
-  [[ "$CHOICES" != *'"htop"'*     ]] && INSTALL_HTOP=false
-  [[ "$CHOICES" != *'"p10k"'*     ]] && INSTALL_P10K=false
-  [[ "$CHOICES" != *'"autosugg"'* ]] && INSTALL_AUTOSUGG=false
-  [[ "$CHOICES" != *'"synthigh"'* ]] && INSTALL_SYNTHIGH=false
+  # whiptail output varies between systems (quoted or unquoted) — match without quotes
+  [[ "$CHOICES" != *neovim*   ]] && INSTALL_NEOVIM=false
+  [[ "$CHOICES" != *lsd*      ]] && INSTALL_LSD=false
+  [[ "$CHOICES" != *bat*      ]] && INSTALL_BAT=false
+  [[ "$CHOICES" != *neofetch* ]] && INSTALL_NEOFETCH=false
+  [[ "$CHOICES" != *htop*     ]] && INSTALL_HTOP=false
+  [[ "$CHOICES" != *p10k*     ]] && INSTALL_P10K=false
+  [[ "$CHOICES" != *autosugg* ]] && INSTALL_AUTOSUGG=false
+  [[ "$CHOICES" != *synthigh* ]] && INSTALL_SYNTHIGH=false
 else
   # Fallback: individual y/n prompts
   echo ""
