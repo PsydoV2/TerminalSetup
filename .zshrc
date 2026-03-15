@@ -1,7 +1,8 @@
-# POWERLEVEL9K_INSTANT_PROMPT must be set before the instant prompt block
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# neofetch must run BEFORE the instant prompt block — output after it triggers a warning
+[[ $- == *i* ]] && neofetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input must go above this block.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -32,5 +33,3 @@ export EDITOR='nvim'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[[ $- == *i* ]] && neofetch

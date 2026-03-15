@@ -157,6 +157,10 @@ cp .aliases ~/.aliases
 # ─── Vimrc ───────────────────────────────────────────────
 [ -f .vimrc ] && cp .vimrc ~/.vimrc
 
+# ─── Clear p10k cache ────────────────────────────────────
+# Force regeneration with the new .zshrc on next shell start
+rm -f "${XDG_CACHE_HOME:-$HOME/.cache}"/p10k-instant-prompt-*.zsh
+
 # ─── Neovim Config ───────────────────────────────────────
 if $INSTALL_NEOVIM; then
   echo "📝 Setting up Neovim config..."
